@@ -1,0 +1,168 @@
+<%- include('partials/header') %>
+<%- include('partials/sidebar') %>
+
+<div class="klopa-backend">
+    <div class="edit-podaci dodaj-restoran">
+        <ul class="nav nav-pills lista mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-podaci-tab" data-bs-toggle="pill" data-bs-target="#pills-podaci" type="button" role="tab" aria-controls="pills-podaci" aria-selected="true">Osnovni podaci</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-lokacija-tab" data-bs-toggle="pill" data-bs-target="#pills-lokacija" type="button" role="tab" aria-controls="pills-lokacija" aria-selected="true">Lokacija</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-slike-tab" data-bs-toggle="pill" data-bs-target="#pills-slike" type="button" role="tab" aria-controls="pills-slike" aria-selected="true">Slike</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-komentari-tab" data-bs-toggle="pill" data-bs-target="#pills-komentari" type="button" role="tab" aria-controls="pills-komentari" aria-selected="true">Komentari</button>
+            </li>
+        </ul>
+        <form class="form">
+            <div class="tab-content" id="pills-tabContent">
+                <!-- Osnovni podaci tab -->
+                <div class="tab-pane fade show active" id="pills-podaci" role="tabpanel" aria-labelledby="pills-podaci-tab" tabindex="0">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <div class="form-data">
+                                <label for="naziv" class="form-label">Ime Lokala</label>
+                                <input type="text" placeholder="Unesite puno ime lokala" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-data">
+                                <label for="slug" class="form-label">Slug</label>
+                                <input type="text" class="form-control" placeholder="Slug restorana">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <div class="form-data">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-data">
+                                <label for="email" class="form-label">Telefon</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="edit-form-title mt-2">
+                        Društvene mreže & Website:
+                    </h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="facebook" class="form-label">Facebook</label>
+                            <input type="text" class="form-control" placeholder="URL u formatu: https://www.example.com/">
+                        </div>
+                        <div class="form-group">
+                            <label for="twitter" class="form-label">Twitter</label>
+                            <input type="text" class="form-control"  placeholder="URL u formatu: https://www.example.com/">
+                        </div>
+                        <div class="form-group">
+                            <label for="instagram" class="form-label">Instagram</label>
+                            <input type="text" class="form-control"  placeholder="URL u formatu: https://www.example.com/">
+                        </div>
+                        <div class="form-group">
+                            <label for="linkedin" class="form-label">LinkedIn</label>
+                            <input type="text" class="form-control"  placeholder="URL u formatu: https://www.example.com/">
+                        </div>
+                        <div class="form-group">
+                            <label for="website" class="form-label">Website</label>
+                            <input type="text" class="form-control"  placeholder="URL u formatu: https://www.example.com/">
+                        </div>          
+                    </div>
+                    <h4 class="edit-form-title mt-2">
+                        Opis Lokala
+                    </h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <textarea name="opis" id="opis" cols="100" rows="10" class="form-control"></textarea>
+                        </div>
+                    </div>
+
+                    <h4 class="edit-form-title mt-2">
+                        Radni sati
+                    </h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                                <ul class="nav flex-column radni-sati">
+                                    <li class="nav-item"> <input type="text" class="form-control" value="Ponedeljak: 07:00 - 23:00"></li>
+                                    <li class="nav-item"> <input type="text" class="form-control" value="Utorak: 07:00 - 23:00" ></li>
+                                    <li class="nav-item"> <input type="text" class="form-control" value="Srijeda: 07:00 - 23:00" ></li>
+                                    <li class="nav-item"> <input type="text" class="form-control" value="Četvrtak: 07:00 - 23:00" ></li>
+                                    <li class="nav-item"> <input type="text" class="form-control" value="Petak: 07:00 - 23:00" ></li>
+                                    <li class="nav-item"> <input type="text" class="form-control" value="Subota: Zatvoreno" ></li>
+                                    <li class="nav-item"> <input type="text" class="form-control" value="Nedelja: Zatvoreno" ></li>
+                                </ul>
+                        </div>
+                    </div>
+                    <h4 class="edit-form title mt-2">
+                        Status
+                    </h4>
+                    <select class="select-status form-select form-select-lg mb-3" aria-label="Odaberi opciju">
+                        <option selected>Aktivan</option>
+                        <option value="odbij">Odbij</option>
+                        <option value="priprema">Priprema</option>
+                    </select>
+
+                </div>
+
+                <!-- Lokacija tab -->
+                <div class="tab-pane fade show lokacija-tab" id="pills-lokacija" role="tabpanel" aria-labelledby="pills-lokacija-tab" tabindex="0">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <div class="form-data">
+                                <label for="naziv" class="form-label">Adresa</label>
+                                <input type="text" class="form-control" placeholder="Puni naziv ulice">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-data">
+                                <label for="slug" class="form-label">Grad</label>
+                                <select name="gradovi" id="gradovi" class="form-select form-control">
+                                    <option value="empty">  </option>
+                                    <% gradovi.forEach((grad) => { %>    
+                                    <option value="<%= grad.ime %>"> <%=grad.ime %> </option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-data">
+                                <label for="slug" class="form-label">Zip</label>
+                                <input type="text" class="form-control" placeholder="Zip kod grada">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- slike tab -->
+                <div class="tab-pane fade show" id="pills-slike" role="tabpanel" aria-labelledby="pills-slike-tab" tabindex="0">
+                    <div class="form-row">
+                        <h4 class="edit-form-title">
+                            Slike Lokala
+                        </h4>
+                    </div>
+                </div>
+
+                <!-- Komentari tab -->
+                <div class="tab-pane fade show" id="pills-komentari" role="tabpanel" aria-labelledby="pills-komentari-tab" tabindex="0">
+                    <div class="form-row">
+                        <h4 class="edit-form-title">
+                            Komentari
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="form-button mb-3">
+                <input type="submit" value="Dodaj" name="submit" class="btn btn-lg btn-primary dodaj-restoran-btn">  
+            </div>
+        </form>
+    </div>
+</div>
+
+<%- include('partials/footer') -%>

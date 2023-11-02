@@ -1,0 +1,85 @@
+<%- include('partials/header') -%>
+<%- include('partials/sidebar') %>
+
+<div class="klopa-backend">
+    <div class="podaci odbijeni-podaci">
+        <table class="table table-bordered border-dark">
+            <thead class="table-head table-dark">
+                <tr>
+                    <th class="table-status">
+                        <label for="id">Status</label> <br>
+                    </th>
+                    <th>
+                        <label for="search">Search</label>
+                        <input type="text">
+                    </th>
+                    <th>
+                        <label for="grad">Grad</label>
+                        
+                        <select name="grad" id="">
+                            <option value="prazno"></option>
+                            <% gradovi.forEach( (grad) => {%>
+                                <option value="<%= grad.ime %>"><%= grad.ime %></option>
+                            <%});%>
+                        </select>
+                    
+                    </th>
+                    <th>
+                        <label for="email">Email</label>
+                        <input type="text" placeholder="Email">
+                    </th>
+                    <th>
+                        <label for="telefon">Telefon</label>
+                        <input type="text" placeholder="Broj Telefona">
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% restorani.forEach((restoran) => { %>
+                    <% if (restoran.odbijeni) {%>
+                    <tr>
+                        <th class="table-body-btn">
+                            <a class="btn aktivni-btn"><i class="fa-solid fa-circle-check"></i></a>
+                            <a class="btn odbijene-btn"><i class="fa-solid fa-circle-xmark"></i></a>
+                            <a class="btn edit-btn"><i class="fa-solid fa-pen-to-square"></i></a>
+                        </th>
+
+                        <th>
+                            <%= restoran.restoran %>
+                        </th>
+                        <th>
+                            <%= restoran.grad %>
+                        </th>
+                        <% restoran.podaci.kontakt.forEach((kontakt) => {%>
+                        <th>
+                            <%= kontakt.email %>
+                        </th>
+                        <th>
+                            <%= kontakt.broj_telefona %>
+                        </th>
+                        <%});%>
+                    </tr>
+                    <%}%>
+                <% }) %>
+            </tbody>
+        </table> 
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+            <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Nazad</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Dalje</a>
+            </li>
+            </ul>
+        </nav>
+    </div>
+    
+
+</div>
+
+<%- include('partials/footer') -%>

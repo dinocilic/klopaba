@@ -1,0 +1,30 @@
+import { createStore } from 'vuex'
+
+export default createStore({
+  state: {
+    ime: null,
+    prezime: null,
+    email: null,
+    telefon: null,
+    errors: [],
+    imeError: null,
+    koraci: 1,
+    submitted: false
+  },
+  mutations: {
+    setIme(state, ime) {
+      state.ime = ime
+    },
+    setPrezime(state, prezime) {
+      state.prezime = prezime
+    },
+    setEmail(state, email) {
+      state.email = email 
+    },
+    setTelefon(state, telefon) {
+      state.telefon = telefon  
+    },
+  },
+  actions: {},
+  modules: {}
+})

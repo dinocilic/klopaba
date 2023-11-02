@@ -1,0 +1,58 @@
+<%- include('partials/header') -%>
+<%- include('partials/sidebar') %>
+<div class="klopa-backend">
+
+
+    <div class="klopa-main">            
+
+        <div class="ukupan-broj">
+            <div class="extra-opcije">
+                <a class="klopa-btn btn btn-lg" href="/admin/dodaj-restoran">
+                    Dodaj Lokal
+                </a>
+                <a class="klopa-btn btn btn-lg" href="/admin/dodaj-grad">
+                    Dodaj Grad
+                </a>
+            </div>
+
+            <div class="ukupno-box">
+                <div class="ukupno-detalji">
+                    <h4 class="ukupno-title">
+                        Ukupan broj lokala:
+                    </h4>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <p>
+                                Aktivni <small class="text-success">(472)</small>
+                            </p>
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>            
+                        </li>
+                        <li class="nav-item">
+                            <p>
+                                Kreirani <small class="text-warning">(50)</small>
+                            </p>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 25%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>               
+                        </li>
+                        <li class="nav-item">
+                            <p>
+                                Odbijeni <small class="text-danger">(10)</small>
+                            </p>
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: 10%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<%- include('partials/footer') -%>

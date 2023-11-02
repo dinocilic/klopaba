@@ -1,0 +1,173 @@
+<%- include('partials/header') %>
+<%- include('partials/sidebar') %>
+
+<div class="klopa-backend">
+    <div class="edit-podaci">
+        <% result.forEach((item) => {%>
+        <h4 class="edit-title">
+            Edit: <%= item.restoran %> 
+        </h4>
+        <ul class="nav nav-pills lista mb-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-podaci-tab" data-bs-toggle="pill" data-bs-target="#pills-podaci" type="button" role="tab" aria-controls="pills-podaci" aria-selected="true">Osnovni podaci</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-lokacija-tab" data-bs-toggle="pill" data-bs-target="#pills-lokacija" type="button" role="tab" aria-controls="pills-lokacija" aria-selected="true">Lokacija</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-slike-tab" data-bs-toggle="pill" data-bs-target="#pills-slike" type="button" role="tab" aria-controls="pills-slike" aria-selected="true">Slike</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-komentari-tab" data-bs-toggle="pill" data-bs-target="#pills-komentari" type="button" role="tab" aria-controls="pills-komentari" aria-selected="true">Komentari</button>
+            </li>
+        </ul>
+        <form class="form">
+            <div class="tab-content" id="pills-tabContent">
+                <!-- Osnovni podaci tab -->
+                <div class="tab-pane fade show active" id="pills-podaci" role="tabpanel" aria-labelledby="pills-podaci-tab" tabindex="0">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <div class="form-data">
+                                <label for="naziv" class="form-label">Ime Lokala</label>
+                                <input type="text" name="lokal" value="<%= item.restoran%>" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-data">
+                                <label for="slug" class="form-label">Slug</label>
+                                <input type="text" name="slug" value="<%= item.slug %>" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <% item.podaci.kontakt.forEach((kontakt) => {%>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <div class="form-data">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" name="email" class="form-control" value="<%= kontakt.email %>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-data">
+                                <label for="email" class="form-label">Telefon</label>
+                                <input type="text" name="telefon" class="form-control" value="<%= kontakt.broj_telefona %>">
+                            </div>
+                        </div>
+                    </div>
+                    <h4 class="edit-form-title mt-2">
+                        Društvene mreže & Website:
+                    </h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="facebook" class="form-label">Facebook</label>
+                            <input type="text" name="facebook" class="form-control" value="<%=kontakt.url.facebook%>">
+                        </div>
+                        <div class="form-group">
+                            <label for="twitter" class="form-label">Twitter</label>
+                            <input type="text" name="twitter" class="form-control" value="<%=kontakt.url.twitter%>">
+                        </div>
+                        <div class="form-group">
+                            <label for="instagram" class="form-label">Instagram</label>
+                            <input type="text" name="instagram" class="form-control" value="<%=kontakt.url.instagram%>">
+                        </div>
+                        <div class="form-group">
+                            <label for="linkedin" class="form-label">LinkedIn</label>
+                            <input type="text" name="linkedin" class="form-control" value="<%=kontakt.url.linkedin%>">
+                        </div>
+                        <div class="form-group">
+                            <label for="website" class="form-label">Website</label>
+                            <input type="text" name="website" class="form-control" value="<%=kontakt.url.website%>">
+                        </div>          
+                    </div>
+                    <%})%>
+                    <h4 class="edit-form-title mt-2">
+                        Opis Lokala
+                    </h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <textarea name="opis" id="opis" cols="100" rows="10" class="form-control"><%= item.podaci.opis %></textarea>
+                        </div>
+                    </div>
+
+                    <h4 class="edit-form-title mt-2">
+                        Radni sati
+                    </h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                                <ul class="nav flex-column radni-sati">
+                                    <% item.podaci.radni_sati.radna_sedmica.forEach((sati) => { %>
+                                    <li class="nav-item">
+                                        <input type="text" name="radni-sati" class="form-control" value="<%= sati %>">
+                                    </li>
+                                    <% }) %>
+                                </ul>
+                        </div>
+                    </div>
+                    <h4 class="edit-form title mt-2">
+                        Status
+                    </h4>
+                    <select class="form-select form-select-lg mb-3" aria-label="Odaberi opciju">
+                        <option name="aktivni" selected>Aktivan</option>
+                        <option name="odbijeni" value="odbij">Odbij</option>
+                        <option name="kreirani" value="priprema">Priprema</option>
+                    </select>
+
+                </div>
+
+                <!-- Lokacija tab -->
+                <div class="tab-pane fade show lokacija-tab" id="pills-lokacija" role="tabpanel" aria-labelledby="pills-lokacija-tab" tabindex="0">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <div class="form-data">
+                                <label for="naziv" class="form-label">Adresa</label>
+                                <input type="text" name="adresa" value="<%= item.podaci.adresa %>" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-data">
+                                <label for="slug" class="form-label">Grad</label>
+                                <input type="text" name="grad" value="<%= item.grad %>" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-data">
+                                <label for="slug" class="form-label">Zip</label>
+                                <input type="text"  name="zip" value="Zip" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- slike tab -->
+                <div class="tab-pane fade show" id="pills-slike" role="tabpanel" aria-labelledby="pills-slike-tab" tabindex="0">
+                    <div class="form-row">
+                        <h4 class="edit-form-title">
+                            Slike Lokala
+                        </h4>
+                    </div>
+                </div>
+
+                <!-- Komentari tab -->
+                <div class="tab-pane fade show" id="pills-komentari" role="tabpanel" aria-labelledby="pills-komentari-tab" tabindex="0">
+                    <div class="form-row">
+                        <h4 class="edit-form-title">
+                            Komentari
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="form-button mb-3">
+                <button class="btn btn-lg btn-primary">
+                    Update
+                </button>
+                <button class="btn btn-lg btn-warning">
+                    Nazad
+                </button>
+            </div>
+        </form>
+        <% }) %>
+    </div>
+</div>
+
+<%- include('partials/footer') -%>

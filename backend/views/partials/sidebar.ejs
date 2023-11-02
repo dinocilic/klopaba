@@ -1,0 +1,63 @@
+
+<div class="klopa-side">
+    <div class="sidebar-logo">
+        <a href="#">
+            <img src="/images/klopa-logo-backend-1.png" alt="" class="backend-logo">
+        </a>
+    </div>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <% if (path === '/admin') {%>
+            <a href="/admin" class="nav-link aktivno"> Početna </a>
+            <% } else { %>
+            <a href="/admin" class="nav-link"> Početna </a>
+            <%}%>
+        </li>
+        <li class="nav-item">
+            <% if (path === '/admin/aktivni') {%>
+            <a href="/admin/aktivni" class="nav-link aktivno"> Aktivni </a>
+            <% } else { %>
+                <a href="/admin/aktivni" class="nav-link"> Aktivni </a>
+            <%}%>
+        </li>
+        <li class="nav-item">
+            <% if (path === '/admin/kreirani') {%>
+            <a href="/admin/kreirani" class="nav-link aktivno"> Kreirani </a>
+            <% } else { %>
+                <a href="/admin/kreirani" class="nav-link"> Kreirani </a>
+            <%}%>        
+        </li>
+        <li class="nav-item">
+            <% if (path === '/admin/odbijene') {%>
+            <a href="/admin/odbijene" class="nav-link aktivno"> Odbijene </a>
+            <% } else { %>
+                <a href="/admin/odbijene" class="nav-link"> Odbijene </a>
+            <%}%>        
+        </li>
+        <li class="nav-item">
+            <% if (path === '/admin/lista-gradova') {%>
+            <a href="/admin/lista-gradova" class="nav-link aktivno"> Gradovi </a>
+            <% } else { %>
+                <a href="/admin/lista-gradova" class="nav-link"> Gradovi </a>
+            <%}%>        
+        </li>
+        <hr>
+        <li class="nav-item">
+            <% if (path === '/admin/dodaj-restoran') {%>
+            <a href="/admin/dodaj-restoran" class="nav-link aktivno"> Dodaj Restoran </a>
+            <% } else { %>
+                <a href="/admin/dodaj-restoran" class="nav-link"> Dodaj Restoran </a>
+            <%}%>            
+        </li>
+        <li class="nav-item">
+            <% if (path === '/admin/dodaj-grad') {%>
+            <a href="/admin/dodaj-grad" class="nav-link aktivno"> Dodaj Grad </a>
+            <% } else { %>
+                <a href="/admin/dodaj-grad" class="nav-link"> Dodaj Grad </a>
+            <%}%>              
+        </li>
+    </ul>
+    <p class="copyright">
+        &copy; Copyright by Klopa.ba
+    </p>
+</div>

@@ -1,0 +1,29 @@
+<%- include('partials/header') -%>
+<div class="backend-login">
+    <!-- Klopa logo  -->
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">
+            <img src="/images/klopa-logo-backend-1.png" class="backend-logo" alt="">
+        </a>
+    </nav>
+    <div class="form-box">
+        <form action="#" class="form">
+            <div class="form-group">
+                <label for="username" class="form-label">Username: </label>
+                <input type="text" class="form-control shadow" placeholder="Your email address">
+            </div>
+            <div class="form-group mt-4 mb-4">
+                <label for="password" class="form-label">Password: </label>
+                <input type="password" class="form-control shadow" placeholder="Your password">
+            </div>
+            <div class="form-check mb-4 mt-4">
+                <input type="checkbox" class="form-check-input" id="klopaCheck">
+                <label class="form-check-label" for="klopaCheck">Zapamti me</label>
+            </div>
+            <a class="btn mt-3 btn-primary login-btn w-100" href="/admin/dashboard">Login</a>
+        </form>
+    </div>
+</div>
+
+
+<%- include('partials/footer') -%>
