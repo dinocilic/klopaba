@@ -1,0 +1,3 @@
+[build]
+  functions = "backend/functions"
+  publish = "frontend/dist" # Path to your Vue.js build output
