@@ -37,7 +37,7 @@ app.set('view engine', 'ejs')
 
 app.use(express.static(__dirname + '/public'));
 
-const gradovi = require('./routes/gradovi');
+const gradovi = require('./functions/gradovi');
 app.use('/api', gradovi)
 
 app.use('/klopadmin', (req,res) => {   
